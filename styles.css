@@ -24,7 +24,44 @@ body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);c
 .hero-photo img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.06);box-shadow:0 8px 30px rgba(0,0,0,.6);}
 
 /* side social */
-.side-social{position:fixed;left:18px;top:40%;display:flex;flex-direction:column;gap:10px;z-index:60;transition:transform .4s;}
+./* SIDE SOCIAL — REWORKED FOR "B" FLOW BEHAVIOR */
+.side-social {
+  position: fixed;
+  left: 20px;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all .45s cubic-bezier(.25,.9,.35,1);
+  z-index: 9999;
+}
+
+/* When contact is visible → switch to horizontal "flow" mode */
+.side-social.stuck {
+  top: auto;
+  bottom: 28px;
+  left: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform: translateY(6px);
+}
+
+/* Minimized state → slightly shrink */
+.side-social.minimized {
+  transform: scale(.88) translateY(4px);
+  left: 16px;
+  bottom: 18px;
+  opacity: .85;
+}
+
+/* Icons soft movement */
+.side-social a {
+  transition: transform .3s ease, opacity .3s ease;
+}
+.side-social a:hover {
+  transform: translateY(-3px) scale(1.07);
+}{position:fixed;left:18px;top:40%;display:flex;flex-direction:column;gap:10px;z-index:60;transition:transform .4s;}
 .side-social a{display:inline-block;background:var(--card);padding:10px 12px;border-radius:8px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,0.03);font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,0.5);}
 
 /* stuck (when contact in view) */
@@ -66,34 +103,23 @@ button{background:var(--accent);color:#fff;padding:10px 16px;border:none;border-
   .hero-text h1{font-size:34px;text-align:center;}
   .side-social{display:none;}
 }
-/* ----------------------------------------- */
-/*           PREMIUM GLOW LIGHT MODE         */
-/* ----------------------------------------- */
 
+/* LIGHT MODE */
 body.light-mode {
   --bg: #ffffff;
   --card: #f7f9fc;
   --muted: #5b5b5b;
   --accent: #009dff;
   --border-light: rgba(0, 157, 255, 0.22);
-  background: radial-gradient(
-        circle at 20% 30%,
-        #e8fbff 0%,
-        #ffffff 30%
-      ),
-      radial-gradient(
-        circle at 80% 70%,
-        #dff3ff 0%,
-        #ffffff 35%
-      );
+  background: radial-gradient(circle at 20% 30%, #e8fbff 0%, #ffffff 30%),
+              radial-gradient(circle at 80% 70%, #dff3ff 0%, #ffffff 35%);
 }
 body.light-mode .card {
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-light);
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.06),
-    0 0 12px rgba(0, 157, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06),
+              0 0 12px rgba(0, 157, 255, 0.15);
   color: #222;
 }
 body.light-mode .skill {
@@ -102,12 +128,10 @@ body.light-mode .skill {
   color: #222;
   transition: 0.25s ease;
 }
-
 body.light-mode .skill:hover {
   transform: translateY(-6px);
-  box-shadow: 
-    0 6px 16px rgba(0, 157, 255, 0.22),
-    0 0 10px rgba(78, 161, 255, 0.5);
+  box-shadow: 0 6px 16px rgba(0, 157, 255, 0.22),
+              0 0 10px rgba(78, 161, 255, 0.5);
   border-color: #4ea1ff;
 }
 body.light-mode .project {
@@ -115,64 +139,20 @@ body.light-mode .project {
   border: 1px solid rgba(0, 157, 255, 0.15);
   box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
-
 body.light-mode .project:hover {
   transform: translateY(-8px);
-  box-shadow:
-    0 8px 24px rgba(0, 157, 255, 0.22),
-    0 0 12px rgba(78, 161, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 157, 255, 0.22),
+              0 0 12px rgba(78, 161, 255, 0.5);
 }
-body.light-mode .hero-text h1 {
-  color: #0d3c66;
-  text-shadow: 0 0 8px rgba(78, 161, 255, 0.45);
-}
-
-body.light-mode .hero-text p {
-  color: #3b5870;
-}
+body.light-mode .hero-text h1 { color: #0d3c66; text-shadow: 0 0 8px rgba(78, 161, 255, 0.45);} 
+body.light-mode .hero-text p { color: #3b5870;} 
 body.light-mode .hero-photo img {
-  box-shadow:
-    0 0 16px rgba(78, 161, 255, 0.5),
-    0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 0 16px rgba(78, 161, 255, 0.5), 0 6px 20px rgba(0,0,0,0.08);
   border: 3px solid rgba(78, 161, 255, 0.35);
 }
-body.light-mode .cursor-gradient {
-  opacity: 1;
-}
+body.light-mode .cursor-gradient { opacity: 1; }
+
 .side-social{transition:all .45s cubic-bezier(.2,.9,.3,1); left:18px; top:40%;}
 .side-social.stuck{top:auto; bottom:22px; transform:translateY(6px) scale(.98);}
 .side-social.minimized{left:12px; bottom:12px; transform:scale(.92);}
-.side-social a{transition:transform .22s, box-shadow .22s;}
-.side-social a:hover{transform:translateX(6px); box-shadow:0 10px 24px rgba(0,157,255,0.12);}
-.side-social {
-  position: fixed;
-  left: 20px;
-  top: 40%;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  transition: all .45s cubic-bezier(.2,.9,.3,1);
-  z-index: 9999;
-}
-
-/* Sayfa sonuna yaklaşınca */
-.side-social.stuck {
-  top: auto;
-  bottom: 28px;
-}
-
-/* Sıkışmış ve küçülmüş görünüm */
-.side-social.minimized {
-  transform: scale(.85) translateY(6px);
-  left: 14px;
-  bottom: 14px;
-  opacity: .85;
-}
-
-/* Hover’da ikonların büyümesi */
-.side-social a {
-  transition: transform .2s;
-}
-.side-social a:hover {
-  transform: translateX(6px) scale(1.06);
-}
+.side-social a{transition:transform .22
