@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+@page {
+  size: A4;
+  margin: 10mm;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: #f4f4f5;
+  color: #18181b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.print-shell {
+  width: 210mm;
+  height: 297mm;
+  box-sizing: border-box;
+  padding: 10mm;
+  background: #ffffff;
+}
+
+.print-frame {
+  height: 100%;
+  overflow: hidden;
+}
+
+.cv-scale {
+  width: 100%;
+  transform-origin: top center;
+}
+
+.cv-document {
+  font-size: 13.7px;
+  line-height: 1.35;
+  color: #27272a;
+}
+
+.print-mode .cv-document {
+  line-height: 1.26;
+}
+
+.cv-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.1em;
+  padding-bottom: 0.9em;
+}
+
+.cv-header-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.cv-heading {
+  margin: 0;
+  font-size: 2.18em;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #09090b;
+}
+
+.cv-subheading {
+  margin: 0.22em 0 0;
+  font-size: 1.17em;
+  font-weight: 500;
+  color: #3f3f46;
+}
+
+.cv-meta {
+  margin: 0.55em 0 0;
+  font-size: 0.82em;
+  line-height: 1.35;
+  color: #52525b;
+  overflow-wrap: anywhere;
+}
+
+.cv-meta + .cv-meta {
+  margin-top: 0.24em;
+}
+
+.cv-photo {
+  width: 28mm;
+  height: 34mm;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.cv-section + .cv-section {
+  margin-top: 0.95em;
+}
+
+.cv-section-divider {
+  border-top: 1px solid #e4e4e7;
+  padding-top: 0.95em;
+}
+
+.cv-section-title {
+  margin: 0 0 0.55em;
+  font-size: 0.77em;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #3f3f46;
+}
+
+.cv-copy,
+.cv-row-secondary,
+.cv-link,
+.cv-list-item {
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  overflow-wrap: anywhere;
+}
+
+.cv-entry + .cv-entry {
+  margin-top: 0.75em;
+}
+
+.cv-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.cv-row-primary {
+  margin: 0;
+  font-weight: 600;
+  color: #18181b;
+}
+
+.cv-row-secondary {
+  margin-top: 0.18em;
+  font-size: 0.93em;
+  color: #3f3f46;
+}
+
+.cv-date {
+  margin: 0;
+  font-size: 0.9em;
+  white-space: nowrap;
+  color: #52525b;
+}
+
+.cv-list {
+  margin: 0.35em 0 0;
+  padding-left: 1.15em;
+}
+
+.cv-list-item + .cv-list-item {
+  margin-top: 0.2em;
+}
+
+.cv-skill-grid {
+  display: grid;
+  gap: 0.38em;
+}
+
+.cv-label {
+  font-weight: 600;
+  color: #18181b;
+}
+
+.cv-link {
+  margin-top: 0.24em;
+  font-size: 0.93em;
+}
+
+.preview-zoom {
+  width: fit-content;
+  margin: 0 auto;
+  transform-origin: top center;
+  will-change: transform;
+}
+
+.screen-preview {
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem 0 1rem;
+}
+
+.print-preview {
+  display: none;
+}
+
+@media print {
+  html,
+  body {
+    background: #ffffff;
+  }
+
+  #root {
+    min-height: auto;
+  }
+
+  .screen-only {
+    display: none !important;
+  }
+
+  .page-grid {
+    display: block !important;
+  }
+
+  .editor-panel {
+    display: none !important;
+  }
+
+  .print-area {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  .screen-preview {
+    display: none !important;
+  }
+
+  .print-preview {
+    display: block !important;
+  }
+
+  .print-shell {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+    padding: 10mm !important;
+  }
+
+  .print-frame {
+    overflow: visible !important;
+  }
+
+  .cv-document {
+    padding: 0 !important;
+  }
+
+  .cv-scale {
+    transform: none !important;
+  }
+}

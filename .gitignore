@@ -1,0 +1,7 @@
+# Ignore dependencies and build outputs for the CV_ATS project
+cv_ats/node_modules/
+cv_ats/dist/
+
+# Optional: ignore OS temp files
+.DS_Store
+Thumbs.db
