@@ -1,102 +1,12 @@
 <!doctype html>
-<html lang="tr">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Taha Fere — Portfolio</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body class="dark">
-<!-- Preloader / logo animation -->
-<div id="preloader" class="preloader" aria-hidden="false">
-  <svg id="logo" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
-    <circle cx="60" cy="60" r="48" stroke="#4ea1ff" stroke-width="2" fill="none" stroke-dasharray="302" stroke-dashoffset="302"/>
-    <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="28" font-family="Arial" dy=".3em">TF</text>
-  </svg>
-</div>
-
-<!-- cursor gradient overlay -->
-<div id="cursor-gradient" class="cursor-gradient" aria-hidden="true"></div>
-
-<header id="hero" class="hero" role="banner">
-  <img class="hero-banner" src="assets/banner.jpg" alt="">
-  <div class="hero-content">
-    <div class="hero-text">
-      <h1 id="name">Taha Fere</h1>
-      <p id="subtitle">Python Backend Developer — FastAPI</p>
-    </div>
-    <div class="hero-photo" aria-hidden="true">
-      <img src="assets/profile.jpg" alt="Taha Fere" />
-    </div>
-  </div>
-</header>
-
-<nav id="side-social" class="side-social" aria-label="Sosyal">
-  <a href="https://github.com/TahaFere" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
-  <a href="https://www.linkedin.com/in/taha-fere-21801a256/" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
-  <a href="mailto:info@tahafere.com" aria-label="Email">✉</a>
-</nav>
-
-<main class="container" id="main">
-  <section id="about" class="card" tabindex="0">
-    <h2 data-i18n="about_title">Hakkımda</h2>
-    <p data-i18n="about_text">Ben Taha FERE, Bilgisayar Programcılığı mezunuyum. Takım çalışmasını ve problem çözmeyi severim. Yazılımda kendimi geliştirip güzel işler yapmayı hedefliyorum. Ana hedefim Python Backend ve FastAPI alanında uzmanlaşmak.</p>
-  </section>
-
-  <section id="skills" class="card">
-    <h2>Yetenekler</h2>
-    <div class="skills-grid" id="skills-grid">
-      <div class="skill"><span class="skill-logo">🐍</span><span class="skill-name">Python</span></div>
-      <div class="skill"><span class="skill-logo">⚙️</span><span class="skill-name">FastAPI</span></div>
-      <div class="skill"><span class="skill-logo">🟦</span><span class="skill-name">HTML</span></div>
-      <div class="skill"><span class="skill-logo">🎨</span><span class="skill-name">CSS</span></div>
-      <div class="skill"><span class="skill-logo">✨</span><span class="skill-name">JavaScript</span></div>
-      <div class="skill"><span class="skill-logo">🐧</span><span class="skill-name">Linux</span></div>
-      <div class="skill"><span class="skill-logo">🔧</span><span class="skill-name">Git</span></div>
-    </div>
-  </section>
-
-  <section id="projects" class="card">
-    <h2>Projeler</h2>
-    <div class="projects-grid">
-      <div class="project">
-        <div class="project-inner">
-          <h3>Yakında eklenecek</h3>
-          <p class="meta">Açıklama</p>
-          <pre class="code-sample" aria-hidden="true">// örnek kod snippet'i burada gösterilebilir</pre>
-        </div>
-      </div>
-      <div class="project"><div class="project-inner"><h3>Yakında eklenecek</h3><p class="meta">—</p></div></div>
-      <div class="project"><div class="project-inner"><h3>Yakında eklenecek</h3><p class="meta">—</p></div></div>
-    </div>
-  </section>
-
-  <section id="contact" class="card">
-    <h2>İletişim</h2>
-    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-      <label for="name">İsim</label>
-      <input id="namef" name="name" required>
-      <label for="email">E-posta</label>
-      <input id="emailf" name="email" type="email" required>
-      <label for="message">Mesaj</label>
-      <textarea id="messagef" name="message" rows="6" required></textarea>
-      <div class="form-row">
-        <button type="submit">Gönder</button>
-        <div class="toggles">
-          <button id="theme-toggle" type="button" aria-pressed="true">🌙</button>
-          <button id="lang-toggle" type="button" aria-pressed="false">EN</button>
-        </div>
-      </div>
-      <p class="form-note">Form gönderimi için `action` alanını Formspree ya da kendi backend adresinle değiştir.</p>
-    </form>
-  </section>
-</main>
-
-<footer class="site-footer" role="contentinfo">
-  <div class="left">© <span id="year"></span> Taha Fere</div>
-  <div class="right">GitHub • LinkedIn</div>
-</footer>
-
-<script src="script.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arena Web Dev App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
