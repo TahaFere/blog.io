@@ -18,15 +18,29 @@
     <main class="main-content">
       <!-- Yükleme Alanı -->
       <div class="upload-section">
-        <div class="upload-area" id="uploadArea">
-          <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3-3m0 0l3 3m-3-3v12"></path>
-          </svg>
-          <h2>Fotoğrafları Buraya Sürükle</h2>
-          <p>veya</p>
-          <button class="btn btn-primary" id="selectBtn">Dosya Seç</button>
-          <input type="file" id="fileInput" multiple accept="image/*,video/*" hidden>
-          <p class="small-text">JPG, PNG, MOV, MP4 - Max 500MB</p>
+        <div class="upload-area-simple">
+          <h2>📸 Fotoğrafları Şimdi Yükle</h2>
+          <p class="description">Nişan anılarını sakla, dostlarınla paylaş</p>
+          
+          <div class="button-group">
+            <a href="https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ?usp=drive_link" 
+               target="_blank" 
+               class="btn btn-primary btn-large">
+              📤 Google Drive'a Yükle
+            </a>
+          </div>
+
+          <div class="qr-section">
+            <p class="qr-label">Telefona Yüklemek İçin QR Tarayıcısı Kullan</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ" 
+                 alt="Google Drive QR Code" 
+                 class="qr-code">
+            <p class="small-text">ya da bu linki kopyala:</p>
+            <div class="link-box" id="linkBox">
+              <input type="text" value="https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ" readonly id="driveLink">
+              <button class="btn-copy" onclick="copyLink()">📋 Kopyala</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -49,10 +63,9 @@
 
       <!-- Dosya Listesi -->
       <div class="files-section">
-        <h3>Google Drive'daki Dosyalar</h3>
-        <button class="btn btn-small" id="refreshBtn">🔄 Yenile</button>
+        <h3>🎬 En Son Yüklenenleri Gör</h3>
         <div id="filesList" class="files-list">
-          <p class="loading">Yükleniyor...</p>
+          <p class="loading">Google Drive'ı ziyaret et ve dosyaları görmek için yukarıdaki butona tıkla!</p>
         </div>
       </div>
     </main>
