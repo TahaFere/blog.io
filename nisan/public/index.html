@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nişan Fotoğrafları - Hızlı Yükleme</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>💍 Nişan Anısı</h1>
+        <p>Güzel anılarımızı Google Drive'a yükleyelim</p>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Yükleme Alanı -->
+      <div class="upload-section">
+        <div class="upload-area" id="uploadArea">
+          <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3-3m0 0l3 3m-3-3v12"></path>
+          </svg>
+          <h2>Fotoğrafları Buraya Sürükle</h2>
+          <p>veya</p>
+          <button class="btn btn-primary" id="selectBtn">Dosya Seç</button>
+          <input type="file" id="fileInput" multiple accept="image/*,video/*" hidden>
+          <p class="small-text">JPG, PNG, MOV, MP4 - Max 500MB</p>
+        </div>
+      </div>
+
+      <!-- İlerleme Göstergesi -->
+      <div class="progress-section" id="progressSection" style="display: none;">
+        <div class="progress-item">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <p class="progress-text" id="progressText">Yükleniyor...</p>
+        </div>
+      </div>
+
+      <!-- Sonuçlar -->
+      <div class="results-section" id="resultsSection" style="display: none;">
+        <h3>Yükleme Sonuçları</h3>
+        <div id="resultsList" class="results-list"></div>
+        <button class="btn btn-secondary" onclick="location.reload()">Yeni Yükleme</button>
+      </div>
+
+      <!-- Dosya Listesi -->
+      <div class="files-section">
+        <h3>Google Drive'daki Dosyalar</h3>
+        <button class="btn btn-small" id="refreshBtn">🔄 Yenile</button>
+        <div id="filesList" class="files-list">
+          <p class="loading">Yükleniyor...</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
