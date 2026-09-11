@@ -151,6 +151,32 @@ body {
   transform: translateY(-2px);
 }
 
+/* Info Box */
+.info-box {
+  background: #fef3f5;
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.info-box h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 1.05em;
+}
+
+.info-box ul {
+  list-style: none;
+  color: #666;
+}
+
+.info-box li {
+  padding: 8px 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
 /* Buttons */
 .btn {
   padding: 12px 24px;

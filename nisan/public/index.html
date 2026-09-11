@@ -16,79 +16,59 @@
     </header>
 
     <main class="main-content">
-      <!-- Tab Navigation -->
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="upload">📤 Yükle</button>
-        <button class="tab-btn" data-tab="drive">🔗 Google Drive</button>
-      </div>
-
-      <!-- Upload Tab -->
-      <div id="upload" class="tab-content active">
-        <div class="upload-section">
-          <div class="upload-area" id="uploadArea">
-            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3-3m0 0l3 3m-3-3v12"></path>
-            </svg>
-            <h2>Fotoğraf & Video Sürükle</h2>
-            <p>veya</p>
-            <button class="btn btn-primary" id="selectBtn">📁 Dosya Seç</button>
-            <input type="file" id="fileInput" multiple accept="image/*,video/*" hidden>
-            <p class="small-text">JPG, PNG, MOV, MP4 | Sınırsız boyut</p>
+      <!-- Upload Section -->
+      <div class="upload-section">
+        <div class="upload-area-simple">
+          <h2>📸 Fotoğrafları Yükle</h2>
+          <p class="description">Nişan anılarını Google Drive'a yükle</p>
+          
+          <div class="button-group">
+            <a href="https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ?usp=drive_link" 
+               target="_blank" 
+               class="btn btn-primary btn-large">
+              📤 Google Drive'a Yükle
+            </a>
           </div>
 
-          <!-- Upload Items List -->
-          <div class="upload-list" id="uploadList"></div>
-
-          <!-- Action Buttons -->
-          <div class="action-buttons" id="actionButtons" style="display: none;">
-            <button class="btn btn-secondary" id="pauseBtn">⏸️ Duraklat</button>
-            <button class="btn btn-secondary" id="resumeBtn" style="display: none;">▶️ Devam Et</button>
-            <button class="btn btn-secondary" id="cancelBtn">❌ İptal Et</button>
-          </div>
-
-          <!-- Upload Summary -->
-          <div class="upload-summary" id="uploadSummary" style="display: none;">
-            <div class="summary-content">
-              <h3>🎉 Tamamlandı!</h3>
-              <p id="summaryText"></p>
-              <button class="btn btn-secondary" onclick="location.reload()">📸 Yeni Yükleme</button>
+          <div class="qr-section">
+            <p class="qr-label">📱 Telefonda Açmak İçin QR Kodunu Tara</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ" 
+                 alt="QR Code" 
+                 class="qr-code">
+            <p class="small-text">Linki Kopyala ve Gönder</p>
+            <div class="link-box">
+              <input type="text" value="https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ" readonly id="driveLink">
+              <button class="btn-copy" onclick="copyLink()">📋 Kopyala</button>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Drive Tab -->
-      <div id="drive" class="tab-content">
-        <div class="upload-section">
-          <div class="upload-area-simple">
-            <h2>🔗 Google Drive</h2>
-            <p class="description">Direkt Google Drive'a yükle</p>
-            
-            <div class="button-group">
-              <a href="https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ?usp=drive_link" 
-                 target="_blank" 
-                 class="btn btn-primary btn-large">
-                📤 Google Drive'a Git
-              </a>
-            </div>
-
-            <div class="qr-section">
-              <p class="qr-label">📱 QR Scanner ile Aç</p>
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ" 
-                   alt="QR Code" 
-                   class="qr-code">
-              <p class="small-text">ya da linki kopyala:</p>
-              <div class="link-box">
-                <input type="text" value="https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ" readonly id="driveLink">
-                <button class="btn-copy" onclick="copyLink()">📋 Kopyala</button>
-              </div>
-            </div>
+          <div class="info-box">
+            <h3>💡 Bilgi</h3>
+            <ul>
+              <li>✅ Sınırsız dosya yükleme</li>
+              <li>✅ Her boyut ve formatta</li>
+              <li>✅ İPhone ve Android uyumlu</li>
+              <li>✅ Herkes upload edebilir</li>
+            </ul>
           </div>
         </div>
       </div>
     </main>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function copyLink() {
+      const linkInput = document.getElementById('driveLink');
+      linkInput.select();
+      document.execCommand('copy');
+      
+      const btn = event.target;
+      const originalText = btn.textContent;
+      btn.textContent = '✅ Kopyalandı!';
+      setTimeout(() => {
+        btn.textContent = originalText;
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
