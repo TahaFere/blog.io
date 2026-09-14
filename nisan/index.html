@@ -1,13 +1,81 @@
 <!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=public/">
-  <title>Nişan Anısı</title>
+  <meta name="theme-color" content="#fff4f0">
+  <title>Fatma Nur & Taha | Nişanımız</title>
+  <link rel="stylesheet" href="invite.css">
 </head>
 <body>
-  <p>Nişan sayfasına yönlendiriliyorsunuz...</p>
-  <p><a href="public/">Devam etmek için tıklayın</a></p>
+  <main class="page-shell">
+    <section class="invitation-card" aria-labelledby="page-title">
+      <img class="invitation-image" src="assets/davetiye.jpeg" alt="Fatma Nur ve Taha'nın nişan davetiyesi">
+      <div class="invitation-caption">
+        <p class="eyebrow">Birlikte güzel bir anıya</p>
+        <h1 id="page-title">Nişanımıza kalan zaman</h1>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div class="time-box"><strong id="days">--</strong><span>gün</span></div>
+          <div class="time-box"><strong id="hours">--</strong><span>saat</span></div>
+          <div class="time-box"><strong id="minutes">--</strong><span>dakika</span></div>
+          <div class="time-box"><strong id="seconds">--</strong><span>saniye</span></div>
+        </div>
+        <p class="start-hint">Ekrana dokununca kelebekler bizimle uçmaya başlayacak 🦋</p>
+      </div>
+    </section>
+
+    <section class="upload-panel" aria-labelledby="upload-title">
+      <h2 id="upload-title">Anılarınızı bizimle paylaşın</h2>
+      <p>Nişan günümüzde çektiğiniz fotoğraf ve videoları aşağıdaki klasöre ekleyebilirsiniz.</p>
+      <a class="drive-button" href="https://drive.google.com/drive/folders/19BkQeSWtc-KWMFVCurWb-VRZJUkbXWaQ?usp=drive_link" target="_blank" rel="noopener">Google Drive'a yükle</a>
+      <p class="drive-note">Telefonunuzdan fotoğraf veya video seçip yükleyebilirsiniz.</p>
+    </section>
+  </main>
+
+  <div id="butterflies" aria-hidden="true"></div>
+
+  <script>
+    const eventDate = new Date('2026-10-11T13:00:00+03:00').getTime();
+    const countdown = document.getElementById('countdown');
+    const units = {
+      days: document.getElementById('days'),
+      hours: document.getElementById('hours'),
+      minutes: document.getElementById('minutes'),
+      seconds: document.getElementById('seconds')
+    };
+
+    function updateCountdown() {
+      const remaining = Math.max(0, eventDate - Date.now());
+      const seconds = Math.floor(remaining / 1000);
+      units.days.textContent = Math.floor(seconds / 86400);
+      units.hours.textContent = String(Math.floor(seconds % 86400 / 3600)).padStart(2, '0');
+      units.minutes.textContent = String(Math.floor(seconds % 3600 / 60)).padStart(2, '0');
+      units.seconds.textContent = String(seconds % 60).padStart(2, '0');
+      if (remaining === 0) countdown.previousElementSibling.textContent = 'Bugün nişanımız var!';
+    }
+
+    function releaseButterflies() {
+      if (document.body.dataset.butterflies === 'released') return;
+      document.body.dataset.butterflies = 'released';
+      const container = document.getElementById('butterflies');
+      for (let index = 0; index < 9; index += 1) {
+        const butterfly = document.createElement('span');
+        butterfly.className = 'butterfly is-flying';
+        butterfly.style.setProperty('--start-y', `${12 + index * 8}vh`);
+        butterfly.style.setProperty('--mid-y', `${20 + (index % 4) * 15}vh`);
+        butterfly.style.setProperty('--high-y', `${8 + (index % 5) * 16}vh`);
+        butterfly.style.setProperty('--end-y', `${18 + (index % 6) * 11}vh`);
+        butterfly.style.animationDelay = `${index * 0.18}s`;
+        butterfly.innerHTML = '<span></span>';
+        container.appendChild(butterfly);
+        butterfly.addEventListener('animationend', () => butterfly.remove());
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    document.addEventListener('click', releaseButterflies, { passive: true });
+    document.addEventListener('touchstart', releaseButterflies, { passive: true });
+  </script>
 </body>
 </html>
