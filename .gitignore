@@ -1,6 +1,10 @@
 # Ignore dependencies and build outputs for the CV_ATS project
 cv_ats/node_modules/
 cv_ats/dist/
+nisan/node_modules/
+node_modules/
+nisan/.env
+nisan/google-drive-key.json
 
 # Optional: ignore OS temp files
 .DS_Store
