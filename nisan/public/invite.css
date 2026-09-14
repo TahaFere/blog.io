@@ -108,12 +108,6 @@ button, a { font: inherit; }
   text-transform: uppercase;
 }
 
-.start-hint {
-  margin: 16px 0 0;
-  color: #8b6974;
-  font-size: .76rem;
-}
-
 .upload-panel {
   margin-top: 18px;
   padding: 24px 20px;
@@ -154,54 +148,6 @@ button, a { font: inherit; }
 
 .drive-note { color: #846b73; font-size: .75rem !important; }
 
-.butterfly {
-  position: fixed;
-  z-index: 4;
-  left: -80px;
-  top: 22vh;
-  width: 34px;
-  height: 28px;
-  pointer-events: none;
-  opacity: 0;
-  filter: drop-shadow(0 4px 6px rgba(130, 64, 74, .16));
-}
-
-.butterfly::before, .butterfly::after {
-  content: '';
-  position: absolute;
-  top: 1px;
-  width: 17px;
-  height: 23px;
-  border-radius: 70% 25% 70% 25%;
-  background: linear-gradient(135deg, #f28ca0, #d95f78);
-}
-
-.butterfly::before { left: 0; transform: rotate(28deg); transform-origin: right bottom; }
-.butterfly::after { right: 0; transform: scaleX(-1) rotate(28deg); transform-origin: left bottom; }
-
-.butterfly span {
-  position: absolute;
-  z-index: 1;
-  left: 15px;
-  top: 5px;
-  width: 4px;
-  height: 20px;
-  border-radius: 50%;
-  background: #8e4358;
-}
-
-.butterfly.is-flying { animation: fly 10s linear forwards; }
-.butterfly.is-flying::before, .butterfly.is-flying::after { animation: flap .22s ease-in-out infinite alternate; }
-
-@keyframes fly {
-  0% { left: -60px; top: var(--start-y); transform: rotate(8deg) scale(.75); opacity: 0; }
-  10% { opacity: .9; }
-  35% { left: 34vw; top: var(--mid-y); transform: rotate(-14deg) scale(1); }
-  65% { left: 78vw; top: var(--high-y); transform: rotate(16deg) scale(.86); }
-  100% { left: 110vw; top: var(--end-y); transform: rotate(-8deg) scale(.7); opacity: 0; }
-}
-
-@keyframes flap { to { transform: rotate(12deg) scaleY(.72); } }
 @keyframes arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 460px) {
